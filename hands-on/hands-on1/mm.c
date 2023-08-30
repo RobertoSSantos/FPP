@@ -20,7 +20,7 @@ void printMatrix(int *matrix, int size)
   printf("\n");
 }
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
  int size = atoi(argv[1]);  
  int i, j, k;
@@ -34,7 +34,6 @@ int main (int argc, char **argv)
  initializeMatrix(B, size);
 
  t1 = omp_get_wtime();
- #pragma omp parallel for private(i, j, k)
    for(i = 0; i < size; i++)
     for(j = 0; j < size; j++)
       for(k = 0; k < size; k++)
