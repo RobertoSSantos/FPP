@@ -10,8 +10,6 @@ int main (int argc, char **argv) {
     int numberOfProcessors, id, to, from, tag = 1000;
     int result, values;
 
-    /******Initializing MPI******/
-
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &numberOfProcessors);
     MPI_Comm_rank(MPI_COMM_WORLD, &id);
@@ -56,7 +54,7 @@ int main (int argc, char **argv) {
                 case '*':
                     values = 0;
                     for(i = 0; i < SIZE; i++)
-                        values *= array[i];
+                        values = values * array[i];
                     break;
             }
 
@@ -64,7 +62,7 @@ int main (int argc, char **argv) {
             MPI_Send(&operationsRec, 1, MPI_CHAR, 0, tag, MPI_COMM_WORLD);
 
     }
-    
+    MPI_Finalize();
     return 0;
 
 }
