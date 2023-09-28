@@ -168,7 +168,7 @@ int main(int argc,char *argv[])
   if(nodo==0)
   {
     printf("(%d) Threads %d, Process %d, %s, Time %.6lf\n\n",N, NUMTHREADS, np, nombre_procesador,tf-ti);
-    printf("%d\t%f\n", N, tf-ti);
+    //printf("%d\t%f\n", N, tf-ti);
     for(i=1;i<np;i++)
     {
       MPI_Recv(&c[i*ldc*N/np],fcl*cc,MPI_DOUBLE,i,30,MPI_COMM_WORLD,&estado);
